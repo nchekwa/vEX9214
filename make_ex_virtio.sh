@@ -25,11 +25,14 @@ mkdir config_drive/config/license
 echo "-----------------------------------------------------"
 echo "Creating loader file..."
 cat > config_drive/boot/loader.conf <<EOF
-vmtype="0"
-vm_retype="RE-VMX"
-vm_i2cid="0xBAA"
-vm_chassis_i2cid="151"
-vm_instance="0"
+boot_noveriexec=yes
+hw.pci.link.0x60.irq=10
+vmtype=0
+vm_retype=RE-VMX
+vm_i2cid=0xBAA
+vm_chassis_i2cid=151
+vm_instance=1
+vm_is_virtual=1
 kern.timecounter.invariant_tsc=1
 kern.timecounter.smp_tsc=1
 kern.timecounter.vm_guest_tsc=1
@@ -117,7 +120,7 @@ echo "-----------------------------------------------------"
 echo "Creating virtiob (vmxhdd.img) for VCP ..."
 # vmxhdd.img
 # Create empty disk emulate routing-engine-hdd
-qemu-img create -f qcow2 virtiob.qcow2 4G >/dev/null
+qemu-img create -f qcow2 -o compat=1.1 virtiob.qcow2 4G >/dev/null
 ls -l virtiob.qcow2
 
 echo "-----------------------------------------------------"
@@ -130,7 +133,7 @@ mount -o loop virtioc.img /mnt/virtioc
 cp config_drive/vmm-config.tgz /mnt/virtioc
 umount /mnt/virtioc
 rm -R /mnt/virtioc
-qemu-img convert -O qcow2 virtioc.img virtioc.qcow2
+qemu-img convert -O qcow2 -o compat=1.1 virtioc.img virtioc.qcow2
 ls -l virtioc.qcow2
 
 echo "-----------------------------------------------------"
