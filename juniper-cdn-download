@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Check if the URL argument is provided
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 'URL' [OUTPUT-FILE-NAME]"
+    exit 1
+fi
+
+# Get the URL from the first argument
+url="$1"
+echo "URL: $url"
+
+output_filename=$(basename "${url%%\?*}")
+echo "Extracted filename: $output_filename"
+
+
+# Check if the URL contains ".qcow2"
+if [[ "$url" == *".qcow2"* ]]; then
+    output_filename="virtioa.qcow2"
+fi
+
+# If an optional output filename is provided as the second argument, use it
+if [ $# -ge 2 ]; then
+    output_filename="$2"
+fi
+
+
+
+# Run aria2c to download the URL
+aria2c -x 16 -k 100M -s 16 "$url" --out "$output_filename"
