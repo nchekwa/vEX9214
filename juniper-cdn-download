@@ -15,7 +15,7 @@ echo "Extracted filename: $output_filename"
 
 
 # Check if the URL contains ".qcow2"
-if [[ "$url" == *".qcow2"* ]]; then
+if [[ "$url" == *".qcow2?"* ]]; then
     output_filename="virtioa.qcow2"
 fi
 
@@ -24,7 +24,16 @@ if [ $# -ge 2 ]; then
     output_filename="$2"
 fi
 
-
-
 # Run aria2c to download the URL
 aria2c -x 16 -k 100M -s 16 "$url" --out "$output_filename"
+
+# Check if the output_filename has a .gz extension
+if [[ $output_filename == *.gz ]]; then
+    echo "File is gzip-compressed"
+
+    # Decompress the file using gzip
+    gzip -d "$output_filename"
+    echo "Decompression complete"
+else
+    echo "File is not gzip-compressed"
+fi
