@@ -4,6 +4,31 @@
 rootpassword=root123
 
 
+
+# Check if the system is running Ubuntu
+if [[ -f /etc/lsb-release ]]; then
+    source /etc/lsb-release
+    if [[ "$DISTRIB_ID" == "Ubuntu" ]]; then
+        echo "This is Ubuntu."
+    else
+        echo "This is not Ubuntu."
+        exit 1
+    fi
+else
+    echo "This is not Ubuntu."
+    exit 1
+fi
+
+# Check if 'pwgen' is installed and install it if it's not
+if ! command -v pwgen &> /dev/null; then
+    echo "'pwgen' is not installed. Installing..."
+    sudo apt-get update -y
+    sudo apt-get install -y pwgen
+else
+    echo "'pwgen' is already installed."
+fi
+
+
 echo "-----------------------------------------------------"
 echo "Prepere..."
 mkdir /mnt/virtioc
