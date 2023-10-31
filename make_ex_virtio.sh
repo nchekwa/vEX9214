@@ -51,6 +51,7 @@ system {
     services {
         ssh {
             root-login allow;
+            protocol-version v2;
         }
         netconf {
             ssh;
@@ -85,6 +86,7 @@ interfaces {
             family inet {
                 dhcp {
                     vendor-id Juniper-ex9214-VM;
+                    force-discover;
                 }
             }
         }
