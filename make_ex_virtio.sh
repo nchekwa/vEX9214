@@ -28,6 +28,13 @@ else
     echo "'pwgen' is already installed."
 fi
 
+# Check if 'qemu-img' is installed and install it if it's not
+if ! dpkg -l | grep -q "qemu-utils"; then
+    echo "'qemu-img' (qemu-utils) is not installed. Installing..."
+    sudo apt-get install -y qemu-utils
+else
+    echo "'qemu-img' (qemu-utils) is already installed."
+fi
 
 echo "-----------------------------------------------------"
 echo "Prepere..."
