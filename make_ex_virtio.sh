@@ -6,9 +6,9 @@ rootpassword=root123
 
 
 # Check if the system is running Ubuntu
-if [[ -f /etc/lsb-release ]]; then
-    source /etc/lsb-release
-    if [[ "$DISTRIB_ID" == "Ubuntu" ]]; then
+if [ -f /etc/lsb-release ]; then
+    . /etc/lsb-release
+    if [ "$DISTRIB_ID" = "Ubuntu" ]; then
         echo "This is Ubuntu."
     else
         echo "This is not Ubuntu."
@@ -20,7 +20,7 @@ else
 fi
 
 # Check if 'pwgen' is installed and install it if it's not
-if ! command -v pwgen &> /dev/null; then
+if ! dpkg -l | grep -q "pwgen"; then
     echo "'pwgen' is not installed. Installing..."
     sudo apt-get update -y
     sudo apt-get install -y pwgen
