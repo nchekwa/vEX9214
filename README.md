@@ -1,4 +1,4 @@
-# vJunos-EX
+# vEX9214
 create metadata USB for vEX<br>
 default config root password: <b>root123</b><br><br>
 # after 21.2
