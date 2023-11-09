@@ -82,7 +82,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": true,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/1",
               "interface_id": 1,
               "speed": {
                 "value": 1,
@@ -98,7 +98,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": false,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/1",
               "interface_id": 1,
               "speed": {
                 "value": 10,
@@ -126,7 +126,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": true,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/2",
               "interface_id": 1,
               "speed": {
                 "value": 1,
@@ -142,7 +142,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": false,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/2",
               "interface_id": 1,
               "speed": {
                 "value": 10,
@@ -170,7 +170,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": true,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/3",
               "interface_id": 1,
               "speed": {
                 "value": 1,
@@ -186,7 +186,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": false,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/3",
               "interface_id": 1,
               "speed": {
                 "value": 10,
@@ -214,7 +214,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": true,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/4",
               "interface_id": 1,
               "speed": {
                 "value": 1,
@@ -230,7 +230,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": false,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/4",
               "interface_id": 1,
               "speed": {
                 "value": 10,
@@ -258,7 +258,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": true,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/5",
               "interface_id": 1,
               "speed": {
                 "value": 1,
@@ -274,7 +274,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": false,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/5",
               "interface_id": 1,
               "speed": {
                 "value": 10,
@@ -302,7 +302,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": true,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/6",
               "interface_id": 1,
               "speed": {
                 "value": 1,
@@ -318,7 +318,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": false,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/6",
               "interface_id": 1,
               "speed": {
                 "value": 10,
@@ -346,7 +346,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": true,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/7",
               "interface_id": 1,
               "speed": {
                 "value": 1,
@@ -362,7 +362,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": false,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/7",
               "interface_id": 1,
               "speed": {
                 "value": 10,
@@ -390,7 +390,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": true,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/8",
               "interface_id": 1,
               "speed": {
                 "value": 1,
@@ -406,7 +406,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": false,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/8",
               "interface_id": 1,
               "speed": {
                 "value": 10,
@@ -434,7 +434,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": true,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/9",
               "interface_id": 1,
               "speed": {
                 "value": 1,
@@ -450,7 +450,7 @@ cat <<EOF > /tmp/vex.json
           "is_default": false,
           "interfaces": [
             {
-              "name": "ge-0/0/0",
+              "name": "ge-0/0/9",
               "interface_id": 1,
               "speed": {
                 "value": 10,
