@@ -1,4 +1,4 @@
-export apstra_ip=172.30.108.195
+export apstra_ip=localhost
 export apstra_username="admin"
 export apstra_password="admin"
 
