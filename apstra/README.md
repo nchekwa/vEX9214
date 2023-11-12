@@ -9,7 +9,8 @@ wget 'https://raw.githubusercontent.com/nchekwa/vEX9214/main/apstra/logical-devi
 sh make-vEX9214.sh
 ```
 <br>
-Usage:<br>
+<br>
+
 ```bash
 Usage: make-vEX9214.sh [options] <apstra_ip>
 Options:
