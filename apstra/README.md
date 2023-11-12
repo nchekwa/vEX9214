@@ -6,7 +6,7 @@ On Apstra server:<be>
 wget 'https://raw.githubusercontent.com/nchekwa/vEX9214/main/apstra/device-profiles-Juniper_vEX9214.json'
 wget 'https://raw.githubusercontent.com/nchekwa/vEX9214/main/apstra/interface-map-Juniper_vEX9214__AOS-20x1%2B4x10.json'
 wget 'https://raw.githubusercontent.com/nchekwa/vEX9214/main/apstra/logical-device-aos_20x1_4x10_vEX9214.json'
-sh make-vEX9214.sh
+bash make-vEX9214.sh
 ```
 <br>
 <br>
