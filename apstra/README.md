@@ -7,5 +7,5 @@ wget https://raw.githubusercontent.com/nchekwa/vJunos-EX/main/apstra/vex-create.
 sh vex-create.sh
 ```
 Check if device profile exist in Apstra:
-<img title="1" alt="Alt text" src="vex_1.jpg">
-<img title="2" alt="Alt text" src="vex_2.jpg">
+<img title="1" alt="Alt text" src="img/vex_1.jpg">
+<img title="2" alt="Alt text" src="img/vex_2.jpg">
