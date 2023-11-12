@@ -1,0 +1,122 @@
+{
+    "id": "aos_20x1_4x10_vEX9214",
+    "display_name": "AOS-20x1+4x10-vEX9214",
+    "panels": [
+      {
+        "port_groups": [
+          {
+            "roles": [
+              "superspine",
+              "unused",
+              "leaf",
+              "generic",
+              "peer",
+              "access",
+              "spine"
+            ],
+            "count": 10,
+            "speed": {
+              "value": 1,
+              "unit": "G"
+            }
+          }
+        ],
+        "port_indexing": {
+          "schema": "absolute",
+          "order": "T-B, L-R",
+          "start_index": 1
+        },
+        "panel_layout": {
+          "row_count": 1,
+          "column_count": 10
+        }
+      },
+      {
+        "port_groups": [
+          {
+            "roles": [
+              "superspine",
+              "unused",
+              "leaf",
+              "generic",
+              "peer",
+              "access",
+              "spine"
+            ],
+            "count": 10,
+            "speed": {
+              "value": 1,
+              "unit": "G"
+            }
+          }
+        ],
+        "port_indexing": {
+          "schema": "absolute",
+          "order": "T-B, L-R",
+          "start_index": 1
+        },
+        "panel_layout": {
+          "row_count": 1,
+          "column_count": 10
+        }
+      },
+      {
+        "port_groups": [
+          {
+            "roles": [
+              "superspine",
+              "unused",
+              "leaf",
+              "generic",
+              "peer",
+              "access",
+              "spine"
+            ],
+            "count": 2,
+            "speed": {
+              "value": 10,
+              "unit": "G"
+            }
+          }
+        ],
+        "port_indexing": {
+          "schema": "absolute",
+          "order": "T-B, L-R",
+          "start_index": 1
+        },
+        "panel_layout": {
+          "row_count": 1,
+          "column_count": 2
+        }
+      },
+      {
+        "port_groups": [
+          {
+            "roles": [
+              "superspine",
+              "unused",
+              "leaf",
+              "generic",
+              "peer",
+              "access",
+              "spine"
+            ],
+            "count": 2,
+            "speed": {
+              "value": 10,
+              "unit": "G"
+            }
+          }
+        ],
+        "port_indexing": {
+          "schema": "absolute",
+          "order": "T-B, L-R",
+          "start_index": 1
+        },
+        "panel_layout": {
+          "row_count": 1,
+          "column_count": 2
+        }
+      }
+    ]
+  }
