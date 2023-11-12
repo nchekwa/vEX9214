@@ -1,7 +1,7 @@
 #!/bin/bash
 # Check if the script is running in Bash
 if [ -z "$BASH_VERSION" ]; then
-    echo "This script requires Bash to run. Please run it using 'bash script.sh'."
+    echo "This script requires Bash to run. Please run it using 'bash $0'."
     exit 1
 fi
 
