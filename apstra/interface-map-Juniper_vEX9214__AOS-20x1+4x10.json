@@ -1,0 +1,680 @@
+{
+    "id": "Juniper_vEX9214__AOS-20x1_4x10",
+    "label": "Juniper_vEX9214__AOS-20x1+4x10",
+    "device_profile_id": "Juniper_vEX9214",
+    "logical_device_id": "aos_20x1_4x10_vEX9214",
+    "interfaces": [
+      {
+        "name": "ge-0/0/0",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 1,
+        "state": "active",
+        "mapping": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/0/1",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 2,
+        "state": "active",
+        "mapping": [
+          2,
+          1,
+          1,
+          1,
+          2
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/0/2",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 3,
+        "state": "active",
+        "mapping": [
+          3,
+          1,
+          1,
+          1,
+          3
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/0/3",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 4,
+        "state": "active",
+        "mapping": [
+          4,
+          1,
+          1,
+          1,
+          4
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/0/4",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 5,
+        "state": "active",
+        "mapping": [
+          5,
+          1,
+          1,
+          1,
+          5
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/0/5",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 6,
+        "state": "active",
+        "mapping": [
+          6,
+          1,
+          1,
+          1,
+          6
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/0/6",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 7,
+        "state": "active",
+        "mapping": [
+          7,
+          1,
+          1,
+          1,
+          7
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/0/7",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 8,
+        "state": "active",
+        "mapping": [
+          8,
+          1,
+          1,
+          1,
+          8
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/0/8",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 9,
+        "state": "active",
+        "mapping": [
+          9,
+          1,
+          1,
+          1,
+          9
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/0/9",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 10,
+        "state": "active",
+        "mapping": [
+          10,
+          1,
+          1,
+          1,
+          10
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/0",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 11,
+        "state": "active",
+        "mapping": [
+          11,
+          1,
+          1,
+          2,
+          1
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/1",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 12,
+        "state": "active",
+        "mapping": [
+          12,
+          1,
+          1,
+          2,
+          2
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/2",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 13,
+        "state": "active",
+        "mapping": [
+          13,
+          1,
+          1,
+          2,
+          3
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/3",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 14,
+        "state": "active",
+        "mapping": [
+          14,
+          1,
+          1,
+          2,
+          4
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/4",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 15,
+        "state": "active",
+        "mapping": [
+          15,
+          1,
+          1,
+          2,
+          5
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/5",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 16,
+        "state": "active",
+        "mapping": [
+          16,
+          1,
+          1,
+          2,
+          6
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/6",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 17,
+        "state": "active",
+        "mapping": [
+          17,
+          1,
+          1,
+          2,
+          7
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/7",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 18,
+        "state": "active",
+        "mapping": [
+          18,
+          1,
+          1,
+          2,
+          8
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/8",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 19,
+        "state": "active",
+        "mapping": [
+          19,
+          1,
+          1,
+          2,
+          9
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "ge-0/1/9",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 20,
+        "state": "active",
+        "mapping": [
+          20,
+          1,
+          1,
+          2,
+          10
+        ],
+        "speed": {
+          "value": 1,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "xe-0/2/0",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 21,
+        "state": "active",
+        "mapping": [
+          21,
+          1,
+          1,
+          3,
+          1
+        ],
+        "speed": {
+          "value": 10,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "xe-0/2/1",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 22,
+        "state": "active",
+        "mapping": [
+          22,
+          1,
+          1,
+          3,
+          2
+        ],
+        "speed": {
+          "value": 10,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "xe-0/3/0",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 23,
+        "state": "active",
+        "mapping": [
+          23,
+          1,
+          1,
+          4,
+          1
+        ],
+        "speed": {
+          "value": 10,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      },
+      {
+        "name": "xe-0/3/1",
+        "roles": [
+          "superspine",
+          "unused",
+          "leaf",
+          "generic",
+          "peer",
+          "access",
+          "spine"
+        ],
+        "position": 24,
+        "state": "active",
+        "mapping": [
+          24,
+          1,
+          1,
+          4,
+          2
+        ],
+        "speed": {
+          "value": 10,
+          "unit": "G"
+        },
+        "setting": {
+          "param": "{\n  \"interface\": {\n    \"speed\": \"\"\n  },\n  \"global\": {\n    \"speed\": \"\"\n  }\n}"
+        }
+      }
+    ]
+  }
