@@ -21,7 +21,7 @@ Options:
   -p, --password <password>  Specify the password. Default: admin.
   -h, --help                 Display this help message.
 Example:
-  make-vEX9214.sh -a delete -u myuser -p mypassword 10.10.10.10
+  make-vEX9214.sh -a create -u myuser -p mypassword 10.10.10.10
 ```
 
 Verify if the device profile exists in Apstra:
