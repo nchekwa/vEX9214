@@ -2,7 +2,7 @@
     "id": "Juniper_vEX9214__AOS-20x1_4x10",
     "label": "Juniper_vEX9214__AOS-20x1+4x10",
     "device_profile_id": "Juniper_vEX9214",
-    "logical_device_id": "aos_20x1_4x10_vEX9214",
+    "logical_device_id": "AOS-20x1_4x10-vEX9214",
     "interfaces": [
       {
         "name": "ge-0/0/0",
