@@ -93,7 +93,7 @@ if [ "$action" = "create" ]; then
     -k -X POST "https://$apstra_ip/api/design/logical-devices" \
     -H  "accept: application/json" \
     -H  "content-type: application/json" \
-    -d @./logical-device-aos_20x1_4x10_vEX9214.json
+    -d @./logical-device-AOS-20x1_4x10-vEX9214.json
     echo ""
 
     echo "CREATE - Interface Map..."
@@ -115,7 +115,7 @@ elif [ "$action" = "delete" ]; then
 
     echo "DELETE - Logical Device..."
     curl -H "AuthToken: $token" \
-    -k -X DELETE "https://$apstra_ip/api/design/logical-devices/aos_20x1_4x10_vEX9214" \
+    -k -X DELETE "https://$apstra_ip/api/design/logical-devices/AOS-20x1_4x10-vEX9214" \
     -H  "accept: application/json" \
     -H  "content-type: application/json" 
     echo ""
