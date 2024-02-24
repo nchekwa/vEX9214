@@ -129,11 +129,26 @@ multi-chassis {
         consistency-check;
     }
 }
+event-options {
+    policy rts_peer_cp_recv_timeout_event {
+        events rts_peer_cp_recv_timeout;
+        then {
+            execute-commands {
+                commands {
+                    "request chassis fpc slot 0 restart";
+                }
+            }
+        }
+    }
+}
 protocols {
     router-advertisement {
         interface fxp0.0;
     }
     lldp {
+        port-id-subtype interface-name;
+        port-description-type interface-description;
+        neighbour-port-info-display port-id;
         interface all;
     }
     lldp-med {
