@@ -186,7 +186,7 @@ echo "-----------------------------------------------------"
 echo "Creating virtiob (vmxhdd.img) for VCP ..."
 # vmxhdd.img
 # Create empty disk emulate routing-engine-hdd
-qemu-img create -f qcow2 -o compat=1.1 virtiob.qcow2 4G >/dev/null
+qemu-img create -f qcow2 -o compat=1.1,refcount_bits=64 virtiob.qcow2 4G >/dev/null
 ls -l virtiob.qcow2
 
 echo "-----------------------------------------------------"
@@ -199,7 +199,7 @@ mount -o loop virtioc.img /mnt/virtioc
 cp config_drive/vmm-config.tgz /mnt/virtioc
 umount /mnt/virtioc
 rm -R /mnt/virtioc
-qemu-img convert -O qcow2 -o compat=1.1 virtioc.img virtioc.qcow2
+qemu-img convert -O qcow2 -o compat=1.1,refcount_bits=64 virtioc.img virtioc.qcow2
 ls -l virtioc.qcow2
 
 echo "-----------------------------------------------------"
