@@ -132,11 +132,28 @@ multi-chassis {
 event-options {
     policy rts_peer_cp_recv_timeout_event {
         events rts_peer_cp_recv_timeout;
+        within 1 {
+            trigger on 1;
+        }
         then {
             execute-commands {
                 commands {
+                    "show chassis environment";
+                    "show system processes extensive";
+                    "show system uptime";
+                    "show chassis alarms";
                     "request chassis fpc slot 0 restart";
                 }
+                output-filename rts_peer_cp_recv_timeout;
+                destination local;
+                output-format text;
+            }
+        }
+    }
+    destinations {
+        local {
+            archive-sites {
+                /var/log/;
             }
         }
     }
