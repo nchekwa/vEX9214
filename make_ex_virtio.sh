@@ -211,7 +211,7 @@ if [ \$? -eq 0 ]; then
     cli -c "request chassis fpc slot 0 restart"
 else
     lldp_count=\$(cli -c "show lldp neighbors" | tail -n +2 | wc -l | tr -d ' ')
-    echo "\${current_datetime} - alarm XDPC not found / LLDP Neighbors: ${lldp_count}"
+    echo "\${current_datetime} - alarm XDPC not found / LLDP Neighbors: \${lldp_count}"
 fi
 EOF
 
