@@ -200,17 +200,18 @@ fi
 echo "-----------------------------------------------------"
 cat > config_drive/var/db/scripts/event/xdpc.sh <<EOF
 #!/bin/sh
-# bash# (crontab -l; echo "* * * * * /bin/sh /var/db/scripts/event/xdpc.sh >> /var/log/script.log 2>&1") | crontab -
+# 
+# (crontab -l; echo "* * * * * /bin/sh /var/db/scripts/event/xdpc.sh >> /var/log/script.log 2>&1") | crontab -
 
 current_datetime=\$(date '+%Y-%m-%d %H:%M:%S')
 output=\$(cli -c "show chassis alarm")
-echo "$output" | grep "XDPC" > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    echo "${current_datetime} - Found XDPC. Restarting FPC slot 0..."
+echo "\$output" | grep "XDPC" > /dev/null 2>&1
+if [ \$? -eq 0 ]; then
+    echo "\${current_datetime} - Found XDPC. Restarting FPC slot 0..."
     cli -c "request chassis fpc slot 0 restart"
 else
     lldp_count=\$(cli -c "show lldp neighbors" | tail -n +2 | wc -l | tr -d ' ')
-    echo "${current_datetime} - alarm XDPC not found / LLDP Neighbors: ${lldp_count}"
+    echo "\${current_datetime} - alarm XDPC not found / LLDP Neighbors: ${lldp_count}"
 fi
 EOF
 
