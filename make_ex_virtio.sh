@@ -1,8 +1,37 @@
-#!/bin/bash
+#!/bin/sh
 
 
 rootpassword=root123
+echo "-----------------------------------------------------"
+# Usage function to display help
+usage() {
+    echo "Usage: $0 [-synchronize] [-ztp]"
+    echo "Options:"
+    echo "  -synchronize    Dual boot enable - add chassis auto-image-upgrade"
+    echo "  -ztp            Chassis auto-image-upgrade enabled"
+    exit 1
+}
+# Initialize variables
+SYNCHRONIZE=false
+ZTP=false
 
+# Parse arguments
+while [ $# -gt 0 ]; do
+    case $1 in
+        -synchronize)
+            SYNCHRONIZE=true
+            ;;
+        -ztp)
+            ZTP=true
+            ;;
+        *)
+            # Unknown option
+            echo "Error: Unknown option: $1"
+            usage
+            ;;
+    esac
+    shift
+done
 
 
 # Check if the system is running Ubuntu
@@ -41,6 +70,7 @@ echo "Prepere..."
 mkdir /mnt/virtioc
 rm -f virtioc.qcow2
 rm -f virtiob.qcow2
+rm -Rf config_drive
 
 echo "-----------------------------------------------------"
 echo "Creating config drive..."
@@ -51,9 +81,11 @@ mkdir config_drive/var/db
 mkdir config_drive/var/db/vmm
 mkdir config_drive/var/db/vmm/etc
 mkdir config_drive/var/db/vmm/yang
+mkdir config_drive/var/db/scripts
+mkdir config_drive/var/db/scripts/event
 mkdir config_drive/config
 mkdir config_drive/config/license
-
+ 
 echo "-----------------------------------------------------"
 echo "Creating loader file..."
 cat > config_drive/boot/loader.conf <<EOF
@@ -74,8 +106,8 @@ echo "-----------------------------------------------------"
 echo "Creating additional config file..."
 SALT=$(pwgen 8 1)
 HASH=$(openssl passwd -1 -salt $SALT $rootpassword)
+echo "Root password: $rootpassword"
 cat > config_drive/config/juniper.conf <<EOF
-/* password: $rootpassword */
 system {
     root-authentication {
         encrypted-password "$HASH";
@@ -88,7 +120,6 @@ system {
         netconf {
             ssh;
         }
-
     }
     arp {
         aging-timer 5;
@@ -112,6 +143,9 @@ system {
         }
     }
 }
+chassis {
+    evpn-vxlan-default-switch-support;
+}
 interfaces {
     fxp0 {
         unit 0 {
@@ -129,35 +163,6 @@ multi-chassis {
         consistency-check;
     }
 }
-event-options {
-    policy rts_peer_cp_recv_timeout_event {
-        events rts_peer_cp_recv_timeout;
-        within 1 {
-            trigger on 1;
-        }
-        then {
-            execute-commands {
-                commands {
-                    "show chassis environment";
-                    "show system processes extensive";
-                    "show system uptime";
-                    "show chassis alarms";
-                    "request chassis fpc slot 0 restart";
-                }
-                output-filename rts_peer_cp_recv_timeout;
-                destination local;
-                output-format text;
-            }
-        }
-    }
-    destinations {
-        local {
-            archive-sites {
-                /var/log/;
-            }
-        }
-    }
-}
 protocols {
     router-advertisement {
         interface fxp0.0;
@@ -172,6 +177,41 @@ protocols {
         interface all;
     }
 }
+EOF
+
+if [ "$SYNCHRONIZE" = true ]; then
+echo "Adding system-commit synchronize"
+cat >> config_drive/config/juniper.conf <<EOF
+system {
+    commit synchronize;
+}
+EOF
+fi
+
+if [ "$ZTP" = true ]; then
+echo "Adding chassis-auto-image-upgrade"
+cat >> config_drive/config/juniper.conf <<EOF
+chassis {
+    auto-image-upgrade;
+}
+EOF
+fi
+
+echo "-----------------------------------------------------"
+cat > config_drive/var/db/scripts/event/xdpc.sh <<EOF
+#!/bin/sh
+# bash# (crontab -l; echo "* * * * * /bin/sh /var/db/scripts/event/xdpc.sh >> /var/log/script.log 2>&1") | crontab -
+
+current_datetime=\$(date '+%Y-%m-%d %H:%M:%S')
+output=\$(cli -c "show chassis alarm")
+echo "$output" | grep "XDPC" > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "${current_datetime} - Found XDPC. Restarting FPC slot 0..."
+    cli -c "request chassis fpc slot 0 restart"
+else
+    lldp_count=\$(cli -c "show lldp neighbors" | tail -n +2 | wc -l | tr -d ' ')
+    echo "${current_datetime} - alarm XDPC not found / LLDP Neighbors: ${lldp_count}"
+fi
 EOF
 
 echo "-----------------------------------------------------"
