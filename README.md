@@ -8,7 +8,7 @@ you need to have in chassis parameter 'evpn-vxlan-default-switch-support'<br>
 <br>
 # How to use:
 ```bash
-Usage: make_ex_virtio.sh [-synchronize] [-ztp]
+Usage: make_ex_virtio.sh [-synchronize] [-ztp] [-no-vxlan-default]
 Options:
   -no-synchronize       Disable dual boot enable - do not add: system>commit synchronize
   -no-ztp               Disable auto upgrade - do not add: chassis>auto-image-upgrade
