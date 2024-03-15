@@ -266,5 +266,5 @@ ls -l virtioc.qcow2
 echo "-----------------------------------------------------"
 echo "Clean..."
 rm virtioc.img
-#rm -R config_drive/
+rm -R config_drive/
 echo "DONE"
