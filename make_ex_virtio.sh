@@ -7,22 +7,27 @@ echo "-----------------------------------------------------"
 usage() {
     echo "Usage: $0 [-synchronize] [-ztp]"
     echo "Options:"
-    echo "  -synchronize    Dual boot enable - add chassis auto-image-upgrade"
-    echo "  -ztp            Chassis auto-image-upgrade enabled"
+    echo "  -no-synchronize       Disable dual boot enable - do not add: system>commit synchronize"
+    echo "  -no-ztp               Disable auto upgrade - do not add: chassis>auto-image-upgrade"
+    echo "  -no-vxlan-default     Disable evpn-vxlan-default-switch-support - do not add chassis>evpn-vxlan-default-switch-support"
     exit 1
 }
 # Initialize variables
-SYNCHRONIZE=false
-ZTP=false
+NOSYNCHRONIZE=false
+NOZTP=false
+NOVXLANDEFAULT=false
 
 # Parse arguments
 while [ $# -gt 0 ]; do
     case $1 in
-        -synchronize)
-            SYNCHRONIZE=true
+        -no-synchronize)
+            NOSYNCHRONIZE=true
             ;;
-        -ztp)
-            ZTP=true
+        -no-ztp)
+            NOZTP=true
+            ;;
+        -no-vxlan-default)
+            NOVXLANDEFAULT=true
             ;;
         *)
             # Unknown option
@@ -75,6 +80,8 @@ rm -Rf config_drive
 echo "-----------------------------------------------------"
 echo "Creating config drive..."
 mkdir config_drive
+mkdir config_drive/etc
+mkdir config_drive/etc/cron.d
 mkdir config_drive/boot
 mkdir config_drive/var
 mkdir config_drive/var/db
@@ -85,7 +92,15 @@ mkdir config_drive/var/db/scripts
 mkdir config_drive/var/db/scripts/event
 mkdir config_drive/config
 mkdir config_drive/config/license
- 
+
+
+echo "-----------------------------------------------------"
+cat > config_drive/etc/cron.d/xdpc <<EOF
+SHELL=/bin/sh
+PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin
+* * * * * root /bin/sh /var/db/scripts/event/xdpc.sh >> /var/log/script.log 2>&1
+EOF
+
 echo "-----------------------------------------------------"
 echo "Creating loader file..."
 cat > config_drive/boot/loader.conf <<EOF
@@ -143,9 +158,6 @@ system {
         }
     }
 }
-chassis {
-    evpn-vxlan-default-switch-support;
-}
 interfaces {
     fxp0 {
         unit 0 {
@@ -179,8 +191,8 @@ protocols {
 }
 EOF
 
-if [ "$SYNCHRONIZE" = true ]; then
-echo "Adding system-commit synchronize"
+if [ "$NOSYNCHRONIZE" = false ]; then
+echo "Adding system>commit synchronize"
 cat >> config_drive/config/juniper.conf <<EOF
 system {
     commit synchronize;
@@ -188,8 +200,8 @@ system {
 EOF
 fi
 
-if [ "$ZTP" = true ]; then
-echo "Adding chassis-auto-image-upgrade"
+if [ "$NOZTP" = false ]; then
+echo "Adding chassis>auto-image-upgrade"
 cat >> config_drive/config/juniper.conf <<EOF
 chassis {
     auto-image-upgrade;
@@ -197,10 +209,18 @@ chassis {
 EOF
 fi
 
+if [ "$NOVXLANDEFAULT" = false ]; then
+echo "Adding chassis> evpn-vxlan-default-switch-support"
+cat >> config_drive/config/juniper.conf <<EOF
+chassis {
+    evpn-vxlan-default-switch-support;
+}
+EOF
+fi
 echo "-----------------------------------------------------"
 cat > config_drive/var/db/scripts/event/xdpc.sh <<EOF
 #!/bin/sh
-# 
+#
 # (crontab -l; echo "* * * * * /bin/sh /var/db/scripts/event/xdpc.sh >> /var/log/script.log 2>&1") | crontab -
 
 current_datetime=\$(date '+%Y-%m-%d %H:%M:%S')
@@ -219,7 +239,7 @@ echo "-----------------------------------------------------"
 echo "Creating vmm-config.tgz..."
 cd config_drive
 tar zcf vmm-config.tgz *
-rm -rf boot config var
+rm -rf boot config var etc
 cd ..
 
 
@@ -246,5 +266,5 @@ ls -l virtioc.qcow2
 echo "-----------------------------------------------------"
 echo "Clean..."
 rm virtioc.img
-rm -R config_drive/
+#rm -R config_drive/
 echo "DONE"
