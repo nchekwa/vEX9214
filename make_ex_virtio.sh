@@ -5,7 +5,7 @@ rootpassword=root123
 echo "-----------------------------------------------------"
 # Usage function to display help
 usage() {
-    echo "Usage: $0 [-synchronize] [-ztp]"
+    echo "Usage: $0 [-no-synchronize] [-no-ztp] [-no-vxlan-default]"
     echo "Options:"
     echo "  -no-synchronize       Disable dual boot enable - do not add: system>commit synchronize"
     echo "  -no-ztp               Disable auto upgrade - do not add: chassis>auto-image-upgrade"
